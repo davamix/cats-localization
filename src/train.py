@@ -1,7 +1,7 @@
 import os
 
 from detectron2.data import MetadataCatalog, DatasetCatalog
-from detectron2.confg import get_cfg
+from detectron2.config import get_cfg
 from detectron2 import model_zoo
 from detectron2.engine import DefaultTrainer
 
@@ -10,7 +10,7 @@ from loader import get_data_dicts
 
 
 for d in ["train", "val"]:
-    DatasetCatalog.register("cats_" + d, lambda d=d: get_data_dicts("data/" + d))
+    DatasetCatalog.register("cats_" + d, lambda d=d: get_data_dicts("../data/" + d))
     MetadataCatalog.get("cats_" + d).set(thing_classes=["Blacky", "Niche"])
 
 # Configure model
