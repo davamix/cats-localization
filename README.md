@@ -1,4 +1,4 @@
-# Cats localization with Detectron 2
+# Multiclass instance segmentation using with Detectron 2
 
 Applying segmentation to a custom dataset with two classes:
 
