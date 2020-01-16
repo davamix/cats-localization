@@ -1,4 +1,4 @@
-# Multiclass instance segmentation with Detectron 2
+# Instance segmentation with Detectron 2
 
 Applying segmentation to a custom dataset with two classes:
 
