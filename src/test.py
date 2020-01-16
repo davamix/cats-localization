@@ -34,12 +34,12 @@ v = Visualizer(image[:, :, ::-1],
     )
 
 
-# pred_class = (outputs['instances'].pred_classes).detach()[0]
-# pred_score = (outputs['instances'].scores).detach()[0]
+pred_classes = (outputs['instances'].pred_classes).detach()
+pred_scores = (outputs['instances'].scores).detach()
 
 print(f"File: {img_path}")
-print(outputs['instances'].pred_classes)
-print(outputs['instances'].scores)
+for c, s in zip(pred_classes, pred_scores):
+    print(f"--> Class: {classes[c]}, {s * 100:.2f}%")
 
 v = v.draw_instance_predictions(outputs['instances'].to("cpu"))
 cv2.imwrite("sample_pred.jpg", v.get_image()[:, :, ::-1])
