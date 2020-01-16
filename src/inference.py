@@ -10,6 +10,8 @@ from detectron2.data import MetadataCatalog
 
 from loader import get_data_dicts
 
+classes = ["Blacky", "Niche"]
+
 cfg = get_cfg()
 cfg.merge_from_file(model_zoo.get_config_file("COCO-InstanceSegmentation/mask_rcnn_R_50_FPN_3x.yaml"))
 cfg.DATASETS.TEST = ("cats_val",)
@@ -26,16 +28,21 @@ for idx, d in enumerate(random.sample(dataset_dicts, 3)):
     outputs = predictor(im)
 
     v = Visualizer(im[:, :, ::-1], 
-        metadata = MetadataCatalog.get("cats_val"),
+        metadata = MetadataCatalog.get("cats_val").set(
+            thing_classes=classes,
+            thing_colors=[(177, 205, 223), (223, 205, 177)]),
         scale = 0.8,
         instance_mode = ColorMode.IMAGE_BW
     )
 
-    print(outputs["instances"])
-    print(outputs["instances"].scores)
+    pred_class = (outputs['instances'].pred_classes).detach()[0]
+    pred_score = (outputs['instances'].scores).detach()[0]
+
+    print(f"File: {d['file_name']}")
+    print(f"--> Class: {classes[pred_class]}, {pred_score * 100:.2f}%")
 
     # Save image predictions
-    # v = v.draw_instance_predictions(outputs["instances"].to("cpu"))
-    # image_name = f"inference_{idx}.jpg"
-    # cv2.imwrite(image_name, v.get_image()[:, :, ::-1])
+    v = v.draw_instance_predictions(outputs["instances"].to("cpu"))
+    image_name = f"inference_{idx}.jpg"
+    cv2.imwrite(image_name, v.get_image()[:, :, ::-1])
     

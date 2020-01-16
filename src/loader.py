@@ -21,14 +21,12 @@ def get_data_dicts(img_dir):
         #print(v)
 
         if "regions" not in v: continue
+        
         # Extract info from regions
         annos = v["regions"]
         objs = []
 
-        #for _, anno in annos.items():
         for anno in annos:
-            #assert not anno["region_attributes"]
-
             shape_attr = anno["shape_attributes"]
             px = shape_attr["all_points_x"]
             py = shape_attr["all_points_y"]
@@ -69,17 +67,17 @@ def get_data_dicts(img_dir):
 #         DatasetCatalog.register("cats_" + d, lambda d=d: get_data_dicts("cats/" + d))
 #         MetadataCatalog.get("cats_" + d).set(thing_classes=["Blacky", "Niche"])
 
-#     balloon_metadata = MetadataCatalog.get("cats_train")
+#     cats_metadata = MetadataCatalog.get("cats_train")
 
-#     dataset_dicts = get_data_dicts("data/train")
+#     dataset_dicts = get_data_dicts("../data/train")
 
 #     random.seed(1)
 #     for d in random.sample(dataset_dicts, 3):
-#         img = cv2.imread(d["filename"])
-#         visualizer = Visualizer(img[:, :, ::-1], metadata=balloon_metadata, scale=0.5)
+#         img = cv2.imread(d["file_name"])
+#         visualizer = Visualizer(img[:, :, ::-1], metadata=cats_metadata, scale=0.5)
 #         vis = visualizer.draw_dataset_dict(d)
 #         #cv2.imshow(vis.get_image()[:, :, ::-1])
 #         image_name = str(random.randint(0,100)) + ".jpg"
 #         cv2.imwrite(image_name, vis.get_image()[:, :, ::-1])
 
-# #verify_dataloader()
+# verify_dataloader()

@@ -1,10 +1,13 @@
 # Cats localization with Detectron 2
 
-### TODO
-- Annotate images with [VIA](http://www.robots.ox.ac.uk/~vgg/software/via/).
+Applying segmentation to a custom dataset with two classes:
 
-- Follow the code on https://github.com/davamix/balloon-detectron2 to implement this project.
+![Niche 1](imgs/inference_0.jpg "Niche 1")
+
+![Blacky 1](imgs/inference_1.jpg "Blacky 1")
+
+![Blacky 2](imgs/inference_2.jpg "Blacky 2")
 
 
-### References
+## References
 [Detectron 2](https://github.com/facebookresearch/detectron2)
