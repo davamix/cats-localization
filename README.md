@@ -9,7 +9,10 @@ Applying segmentation to a custom dataset with two classes:
 ![Mix classes](./imgs/test.jpg "Mix classes")
 
 ## Dataset
-https://drive.google.com/open?id=1o9zyd51QCqWG3DlArQnfH4q4clMVQmTY (~39MB)
+
+[README](./data/README.md) on <em>data</em> folder.
 
 ## References
 [Detectron 2](https://github.com/facebookresearch/detectron2)
+
+[Ballon detection](https://github.com/davamix/balloon-detectron2)
