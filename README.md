@@ -6,7 +6,7 @@ Applying segmentation to a custom dataset with two classes:
 
 ![Blacky 1](./imgs/inference_1.jpg "Blacky 1")
 
-![Blacky 2](./imgs/inference_2.jpg "Blacky 2")
+![Mix classes](./imgs/test.jpg "Mix classes")
 
 
 ## References
