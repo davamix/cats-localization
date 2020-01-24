@@ -1,6 +1,6 @@
 # Instance segmentation with Detectron 2
 
-Applying segmentation to a custom dataset with two classes:
+Post: [Detecting my cats with Detectron2](https://davamix.net/posts/detecting-my-cats-with-Detectron2.html) 
 
 ![Niche 1](./imgs/inference_0.jpg "Niche 1")
 
